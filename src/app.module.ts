@@ -11,14 +11,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: parseInt(process.env.PG_PORT),
-      username: process.env.PG_USER,
-      password: process.env.PG_PASSWORD,
-      database: process.env.PG_DB,
+      host: 'localhost',  // Use the service name defined in docker-compose.yml
+      port: 5432,
+      username: 'postgres',
+      password: 'postgres',
+      database: 'postgres',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
-    }),
+   }),
     GraphQLModule.forRoot({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql')
