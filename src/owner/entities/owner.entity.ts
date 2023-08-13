@@ -7,7 +7,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 @ObjectType()
 export class Owner {
   @PrimaryGeneratedColumn()
-  @Field()
+  @Field((type) => Int)
   id: number;
 
   @Column()

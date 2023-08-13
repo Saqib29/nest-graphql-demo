@@ -14,8 +14,8 @@ export class OwnerResolver {
   }
 
   @Query(() => [Owner], { name: 'owner' })
-  findAll() {
-    return this.ownerService.findAll();
+  owners(): Promise<Owner[]> {
+    return this.ownerService.owners();
   }
 
   @Query(() => Owner, { name: 'owner' })
